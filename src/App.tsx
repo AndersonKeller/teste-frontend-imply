@@ -1,25 +1,34 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Form } from "./components/Form";
+
+import { Input } from "./components/Input";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
+    <>
+      <Form>
+        <h2 className="titleColor">Cadastro de usuário</h2>
+        <p className="textColor">
+          Utilize esse cadastro para fazer parte do maior site de trade de
+          Bitcoin do mundo
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+        <Input require label="Nome Completo" />
+        <Input require label="Email" />
+        <div>
+          <Input require label="Telefone" />
+          <Input require label="CPF" />
+          <Input require label="CEP" />
+          <Input require={false} label="Cidade" />
+        </div>
+        <Input require={false} label="Bairro" />
+        <div>
+          <Input require={false} label="Logradouro" />
+          <Input require={false} label="Número" />
+        </div>
+
+        <button type="submit">CADASTRAR</button>
+      </Form>
+    </>
   );
 }
 
