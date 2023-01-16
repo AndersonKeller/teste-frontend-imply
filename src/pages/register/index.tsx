@@ -2,26 +2,29 @@ import { Form } from "../../components/Form";
 import { Input } from "../../components/Input";
 
 export function Register() {
+  function handle() {
+    console.log("oi");
+  }
   return (
     <>
-      <Form>
+      <Form noValidate={true} onSubmit={() => handle()}>
         <h2 className="titleColor">Cadastro de usuário</h2>
         <p className="textColor">
           Utilize esse cadastro para fazer parte do maior site de trade de
           Bitcoin do mundo
         </p>
-        <Input require={true} label="Nome Completo" />
-        <Input require label="Email" />
+        <Input type="text" require={true} label="Nome Completo" />
+        <Input type="email" require label="Email" />
         <div>
-          <Input require label="Telefone" />
-          <Input require label="CPF" />
-          <Input require label="CEP" />
-          <Input require={false} label="Cidade" />
+          <Input type="tel" require label="Telefone" />
+          <Input type="number" require label="CPF" />
+          <Input type="number" require label="CEP" />
+          <Input type="text" require={false} label="Cidade" />
         </div>
-        <Input require={false} label="Bairro" />
+        <Input type="text" require={false} label="Bairro" />
         <div>
-          <Input require={false} label="Logradouro" />
-          <Input require={false} label="Número" />
+          <Input type="text" require={false} label="Logradouro" />
+          <Input type="number" require={false} label="Número" />
         </div>
 
         <button type="submit">CADASTRAR</button>
