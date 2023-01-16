@@ -18,15 +18,20 @@ const GlobalStyles = createGlobalStyle`
 button{
     cursor: pointer;
     border: none;
-    border-radius: 4px;
+    border-radius: 8px;
 }
 body{
     background-color: var(--color-primary100);
-    height: 100vh;
+   
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 16px;
+}
+#root{
+    width: 100%;
+    max-width: 440px;
+    margin: 0 auto;
 }
 .titleColor{
     color: var(--color-secundary100);
@@ -36,6 +41,12 @@ body{
     color: var(--font-color);
     font-weight: 500;
     line-height: 26px;
+}
+.textFooter{
+    color: var(--color-white);
+    margin-top: 16px;
+    line-height: 22px;
+    font-weight: 400;
 }
 
 `;

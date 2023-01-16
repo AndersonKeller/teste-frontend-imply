@@ -28,6 +28,12 @@ function App() {
 
         <button type="submit">CADASTRAR</button>
       </Form>
+      <p className="textFooter">
+        Os cookies são utilizados para facilitar a navegação e torna-lá mais
+        simples e não danificam o seu dispositivo. Permitem uma navegação mais
+        rápida e eficiente, eliminando a necessidade de introduzir repetidamente
+        as mesmas informações.
+      </p>
     </>
   );
 }

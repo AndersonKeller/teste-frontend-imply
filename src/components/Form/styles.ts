@@ -16,8 +16,9 @@ export const StyledForm = styled.form`
     width: 100%;
     flex-wrap: wrap;
     justify-content: space-between;
+    gap: 16px;
     fieldset {
-      max-width: 48%;
+      max-width: 46%;
     }
   }
   button {
