@@ -3,11 +3,10 @@ import { StyledForm } from "./styles";
 interface iFormProps {
   children: React.ReactNode;
   onSubmit: () => void;
-  noValidate: boolean;
 }
-export function Form({ children, onSubmit, noValidate }: iFormProps) {
+export function Form({ children, onSubmit }: iFormProps) {
   return (
-    <StyledForm onSubmit={onSubmit} noValidate={noValidate}>
+    <StyledForm onSubmit={onSubmit} noValidate>
       {children}
     </StyledForm>
   );
