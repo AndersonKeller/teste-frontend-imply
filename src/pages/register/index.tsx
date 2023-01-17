@@ -21,7 +21,8 @@ interface iFormData {
 
 export function Register() {
   const [openModal, setOpenModal] = useState(false);
-  const { city, district, street, number } = useContext(CepContext);
+  const { city, district, street, number, setMessageCpf, setMessagePhone } =
+    useContext(CepContext);
 
   const registerSchema = yup.object().shape({
     name: yup.string().required("Nome obrigatório"),
@@ -29,9 +30,9 @@ export function Register() {
     phone: yup
       .string()
       .required("Telefone obrigatório")
-      .min(11, "Formato inválido"),
-    cpf: yup.string().required("CPF obrigatório").min(11, "Formato inválido"),
-    cep: yup.string().required("CEP obrigatório").min(7, "formato inválido"),
+      .min(15, "Formato inválido"),
+    cpf: yup.string().required("CPF obrigatório").min(14, "Formato inválido"),
+    cep: yup.string().required("CEP obrigatório").min(9, "formato inválido"),
     city: yup.string(),
     district: yup.string(),
     street: yup.string(),
@@ -49,7 +50,16 @@ export function Register() {
   const onSubmit: SubmitHandler<iFormData> = async (data: iFormData) =>
     onSubmitApi(data);
   function onSubmitApi(data: iFormData) {
-    setOpenModal(true);
+    console.log(data);
+    setMessagePhone("");
+    setMessageCpf("");
+    if (data.cpf.includes("_")) {
+      setMessageCpf("Formato inválido");
+    } else if (data.phone.includes("_")) {
+      setMessagePhone("Formato inválido");
+    } else {
+      setOpenModal(true);
+    }
   }
 
   return (

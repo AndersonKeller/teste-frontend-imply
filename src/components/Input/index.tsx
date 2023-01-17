@@ -28,7 +28,14 @@ export function Input({
 }: iInputProps) {
   const [inputValue, setInputValue] = useState("");
 
-  const { setCity, setDistrict, setStreet, setNumber } = useContext(CepContext);
+  const {
+    setCity,
+    setDistrict,
+    setStreet,
+    setNumber,
+    messageCpf,
+    messagePhone,
+  } = useContext(CepContext);
 
   function handleCepApi(data: string) {
     const cepApi = data.replace("-", "");
@@ -79,6 +86,9 @@ export function Input({
             <>
               <InputMask ref={label} {...register} mask={mask} />
               {errorMsg && <p>{errorMsg}</p>}
+              {label === "CPF"
+                ? messageCpf && <p>{messageCpf}</p>
+                : messagePhone && <p>{messagePhone}</p>}
             </>
           )}
         </>

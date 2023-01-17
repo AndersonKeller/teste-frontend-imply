@@ -1,14 +1,14 @@
-import { createContext } from "react";
+import { createContext, useState } from "react";
 import { CepProvider } from "./CepContext";
 
-export const MainContext = createContext({});
+export const MainContext = createContext<iContextProps>({} as iContextProps);
 interface iContextProps {
   children: React.ReactNode;
 }
 
 export function MainProvider({ children }: iContextProps) {
   return (
-    <MainContext.Provider value={{}}>
+    <MainContext.Provider value={{ children }}>
       <CepProvider>{children}</CepProvider>
     </MainContext.Provider>
   );
