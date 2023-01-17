@@ -27,6 +27,7 @@ export function Input({
   value,
 }: iInputProps) {
   const [loading, setLoading] = useState(false);
+  const [inputValue, setInputValue] = useState("");
 
   const { setCity, setDistrict, setStreet, setNumber } = useContext(CepContext);
 
@@ -87,7 +88,12 @@ export function Input({
         </>
       ) : (
         <>
-          <input type={type} {...register} value={value} />
+          <input
+            type={type}
+            {...register}
+            value={value ? value : inputValue}
+            onChange={(e) => setInputValue(e.target.value)}
+          />
           {errorMsg && <p>{errorMsg}</p>}
         </>
       )}
