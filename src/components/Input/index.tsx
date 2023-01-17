@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import InputMask from "react-input-mask";
+import { CepContext } from "../../context/CepContext";
 import { apiCep } from "../../services/api/api";
 
 import { StyledInput } from "./style";
@@ -11,8 +12,8 @@ interface iInputProps {
   register: {};
   errorMsg?: string;
   mask?: string;
+  onchangeCep?: boolean;
   value?: string;
-  onChangeCep?: boolean;
 }
 
 export function Input({
@@ -21,37 +22,44 @@ export function Input({
   type,
   register,
   mask,
+  onchangeCep,
   errorMsg,
-  onChangeCep,
+  value,
 }: iInputProps) {
   const [loading, setLoading] = useState(false);
 
-  const [inputValue, setInputValue] = useState("");
-
-  const [city, setCity] = useState("");
+  const { setCity, setDistrict, setStreet, setNumber } = useContext(CepContext);
 
   function handleCepApi(data: string) {
-    setInputValue(data);
     const cepApi = data.replace("-", "");
+    console.log(cepApi);
 
     async function getCepApi() {
       try {
-        setLoading(true);
-
         const res = await apiCep.get(`${cepApi}/json`);
         console.log(res.data);
-        setCity(res.data.localidade);
+        if (!res.data.erro) {
+          setCity(res.data.localidade);
+          setDistrict(res.data.bairro);
+          setStreet(res.data.logradouro);
+          setNumber(res.data.gia);
+        } else {
+          setCity("");
+          setDistrict("");
+          setStreet("");
+          setNumber("");
+        }
       } catch (error) {
         console.error(error);
       } finally {
         setLoading(false);
       }
     }
-    inputValue.length > 7 && getCepApi();
+    cepApi.length > 7 && getCepApi();
   }
 
   return loading ? (
-    <>Carregando</>
+    <p>Carregando</p>
   ) : (
     <StyledInput>
       <label className="textColor">
@@ -60,27 +68,27 @@ export function Input({
       </label>
       {mask ? (
         <>
-          <InputMask ref={label} {...register} mask={mask} />
-          {errorMsg && <p>{errorMsg}</p>}
-        </>
-      ) : (
-        <>
-          {!onChangeCep ? (
+          {onchangeCep ? (
             <>
-              <input type={type} {...register} />
+              <InputMask
+                ref={label}
+                {...register}
+                mask={mask}
+                onBlur={(e) => handleCepApi(e.target.value)}
+              />
               {errorMsg && <p>{errorMsg}</p>}
             </>
           ) : (
             <>
-              <input
-                type={type}
-                {...register}
-                onBlur={(e) => handleCepApi(e.target.value)}
-                value={inputValue}
-              />
+              <InputMask ref={label} {...register} mask={mask} />
               {errorMsg && <p>{errorMsg}</p>}
             </>
           )}
+        </>
+      ) : (
+        <>
+          <input type={type} {...register} value={value} />
+          {errorMsg && <p>{errorMsg}</p>}
         </>
       )}
     </StyledInput>

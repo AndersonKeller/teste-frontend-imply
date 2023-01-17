@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 
 import App from "./App";
+import { MainProvider } from "./context";
 import reportWebVitals from "./reportWebVitals";
 import GlobalStyles from "./styles/globalStyles";
 
@@ -14,7 +15,9 @@ root.render(
     <BrowserRouter>
       <GlobalStyles />
 
-      <App />
+      <MainProvider>
+        <App />
+      </MainProvider>
     </BrowserRouter>
   </React.StrictMode>
 );

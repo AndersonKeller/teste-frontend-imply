@@ -3,8 +3,9 @@ import { Input } from "../../components/Input";
 import * as yup from "yup";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { ModalWrapper } from "../../components/Modal";
+import { CepContext } from "../../context/CepContext";
 
 interface iFormData {
   name: string;
@@ -20,6 +21,15 @@ interface iFormData {
 
 export function Register() {
   const [openModal, setOpenModal] = useState(false);
+  const {
+    city,
+
+    district,
+
+    street,
+
+    number,
+  } = useContext(CepContext);
 
   const registerSchema = yup.object().shape({
     name: yup.string().required("Nome obrigatório"),
@@ -96,7 +106,7 @@ export function Register() {
             mask="99999-999"
             require={true}
             label="CEP"
-            onChangeCep={true}
+            onchangeCep
             errorMsg={errors.cep?.message && errors.cep.message}
           />
 
@@ -105,6 +115,7 @@ export function Register() {
             type="text"
             require={false}
             label="Cidade"
+            value={city}
           />
         </div>
         <Input
@@ -112,6 +123,7 @@ export function Register() {
           type="text"
           require={false}
           label="Bairro"
+          value={district}
         />
         <div>
           <Input
@@ -119,12 +131,14 @@ export function Register() {
             type="text"
             require={false}
             label="Logradouro"
+            value={street}
           />
           <Input
             register={register("number")}
             type="number"
             require={false}
             label="Número"
+            value={number}
           />
         </div>
 
