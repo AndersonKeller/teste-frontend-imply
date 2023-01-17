@@ -9,6 +9,24 @@ export const StyledHome = styled.main`
   display: flex;
   flex-direction: column;
   gap: 16px;
+
+  aside {
+    position: fixed;
+    right: 0;
+    top: 40%;
+    height: max-content;
+    width: 160px;
+    background-color: var(--color-white);
+    border-radius: 64px 0 0 32px;
+    object-fit: contain;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    img {
+      width: 80%;
+      height: 80%;
+    }
+  }
   header {
     height: 150px;
     overflow: hidden;

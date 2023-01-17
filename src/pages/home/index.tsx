@@ -2,6 +2,7 @@ import { StyledHome } from "./style";
 import bitcoin from "../../assets/img/bitcoinBackground.jpg";
 import { useEffect, useState } from "react";
 import { apiCoinDesk } from "../../services/api/api";
+import sacImg from "../../assets/img/sac.png";
 
 interface iHomeInfos {
   USD: iUSD;
@@ -96,6 +97,10 @@ export function Home() {
           Nakamoto
         </p>
       </section>
+      <aside>
+        <img src={sacImg} alt="SAC menu" />
+        <h2>SAC</h2>
+      </aside>
     </StyledHome>
   );
 }
