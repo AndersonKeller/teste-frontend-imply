@@ -1,3 +1,12 @@
+Olá, segue meu código para o teste de desenvolvedor fornt-end Jr.
+Fiz ele com React.js e typescript.
+
+Aqui fiz uso de algumas ferramentas as quais me sinto mais confortável, Styled-components, axios, react-hook-form, yup, yup-Resolver.
+
+Achei o teste bem bacana e de desafio médio, meio maior desafio foram as validações de input.
+
+Grato! Aguardo um feedback.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
