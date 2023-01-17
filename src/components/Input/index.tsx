@@ -1,5 +1,5 @@
 import React from "react";
-import { IMaskInput } from "react-imask";
+import InputMask from "react-input-mask";
 import { StyledInput } from "./style";
 
 interface iInputProps {
@@ -27,7 +27,7 @@ export function Input({
       </label>
       {mask ? (
         <>
-          <IMaskInput {...register} mask={mask} />
+          <InputMask {...register} mask={mask} />
           {errorMsg && <p>{errorMsg}</p>}
         </>
       ) : (

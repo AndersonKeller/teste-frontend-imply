@@ -63,7 +63,7 @@ export function Register() {
         <Input
           type="email"
           register={register("email")}
-          require
+          require={true}
           label="Email"
           errorMsg={errors.email?.message && errors.email.message}
         />
@@ -71,16 +71,16 @@ export function Register() {
           <Input
             register={register("phone")}
             type="tel"
-            mask="(00) 00000-0000"
-            require
+            mask="(99) 99999-9999"
+            require={true}
             label="Telefone"
             errorMsg={errors.phone?.message && errors.phone.message}
           />
           <Input
             register={register("cpf")}
             type="number"
-            mask="000.000.000-00"
-            require
+            mask="999.999.999-99"
+            require={true}
             label="CPF"
             errorMsg={errors.cpf?.message && errors.cpf.message}
           />
@@ -88,8 +88,8 @@ export function Register() {
           <Input
             register={register("cep")}
             type="number"
-            mask="00000-00"
-            require
+            mask="99999-99"
+            require={true}
             label="CEP"
             errorMsg={errors.cep?.message && errors.cep.message}
           />

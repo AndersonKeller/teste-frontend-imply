@@ -13,5 +13,9 @@ export const StyledInput = styled.fieldset`
     border: 1px solid var(--color-primary100);
     border-radius: 8px;
     width: 100%;
+    padding-left: 8px;
+  }
+  p {
+    color: var(--color-negative);
   }
 `;

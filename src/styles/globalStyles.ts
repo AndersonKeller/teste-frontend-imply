@@ -7,6 +7,9 @@ const GlobalStyles = createGlobalStyle`
     --font-color:#7a7a7a;
     --color-white: #ffffff;
 
+    --color-negative: #cc0000;
+
+
 
 }
 *{
