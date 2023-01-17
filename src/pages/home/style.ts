@@ -41,7 +41,7 @@ export const StyledHome = styled.main`
       border-radius: 8px;
       padding: 32px;
       display: flex;
-
+      width: 100%;
       gap: 16px;
       flex-direction: column;
       div {
@@ -50,6 +50,11 @@ export const StyledHome = styled.main`
         gap: 8px;
         min-height: 150px;
       }
+    }
+  }
+  @media (min-width: 700px) {
+    main {
+      width: 500px;
     }
   }
 `;

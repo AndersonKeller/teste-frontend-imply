@@ -29,12 +29,10 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 16px;
-}
-#root{
-    
+    max-width: 500px;
     margin: 0 auto;
 }
+
 .titleColor{
     color: var(--color-secundary100);
     font-weight: 600;
@@ -49,6 +47,7 @@ body{
     margin-top: 16px;
     line-height: 22px;
     font-weight: 400;
+    width: 440px;
 }
 
 `;
