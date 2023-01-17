@@ -6,17 +6,37 @@ import { yupResolver } from "@hookform/resolvers/yup";
 
 interface iFormData {
   name: string;
+  email: string;
+  phone: string;
+  cpf: string;
+  cep: string;
+  city?: string;
+  district?: string;
+  street?: string;
+  number?: string;
 }
 
 export function Register() {
   const registerSchema = yup.object().shape({
-    name: yup.string().required("nome obrigatório"),
+    name: yup.string().required("Nome obrigatório"),
+    email: yup.string().required("Email obrigatório").email("Formato inválido"),
+    phone: yup
+      .string()
+      .required("Telefone obrigatório")
+      .min(11, "Formato inválido"),
+    cpf: yup.string().required("CPF obrigatório").min(11, "Formato inválido"),
+    cep: yup.string().required("CEP obrigatório").min(7, "formato inválido"),
+    city: yup.string(),
+    district: yup.string(),
+    street: yup.string(),
+    number: yup.string(),
   });
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<iFormData>({
+    mode: "onChange",
     resolver: yupResolver(registerSchema),
   });
 
@@ -38,12 +58,42 @@ export function Register() {
           type="text"
           require={true}
           label="Nome Completo"
+          errorMsg={errors.name?.message && errors.name.message}
         />
-        <Input type="email" require label="Email" />
+        <Input
+          type="email"
+          register={register("email")}
+          require
+          label="Email"
+          errorMsg={errors.email?.message && errors.email.message}
+        />
         <div>
-          <Input type="tel" require label="Telefone" />
-          <Input type="number" require label="CPF" />
-          <Input type="number" require label="CEP" />
+          <Input
+            register={register("phone")}
+            type="tel"
+            mask="(00) 00000-0000"
+            require
+            label="Telefone"
+            errorMsg={errors.phone?.message && errors.phone.message}
+          />
+          <Input
+            register={register("cpf")}
+            type="number"
+            mask="000.000.000-00"
+            require
+            label="CPF"
+            errorMsg={errors.cpf?.message && errors.cpf.message}
+          />
+
+          <Input
+            register={register("cep")}
+            type="number"
+            mask="00000-00"
+            require
+            label="CEP"
+            errorMsg={errors.cep?.message && errors.cep.message}
+          />
+
           <Input type="text" require={false} label="Cidade" />
         </div>
         <Input type="text" require={false} label="Bairro" />
