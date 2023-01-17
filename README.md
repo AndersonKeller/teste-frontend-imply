@@ -5,6 +5,8 @@ Aqui fiz uso de algumas ferramentas as quais me sinto mais confortável, Styled-
 
 Achei o teste bem bacana e de desafio médio, meio maior desafio foram as validações de input.
 
+Aproveitei e fiz um deploy https://teste-imply.vercel.app/
+
 Grato! Aguardo um feedback.
 
 # Getting Started with Create React App
