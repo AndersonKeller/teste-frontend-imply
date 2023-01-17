@@ -45,6 +45,7 @@ export function Register() {
   function onSubmitApi(data: iFormData) {
     console.log(data);
   }
+
   return (
     <>
       <Form onSubmit={handleSubmit(onSubmit)}>
@@ -88,18 +89,39 @@ export function Register() {
           <Input
             register={register("cep")}
             type="number"
-            mask="99999-99"
+            mask="99999-999"
             require={true}
             label="CEP"
+            onChangeCep={true}
             errorMsg={errors.cep?.message && errors.cep.message}
           />
 
-          <Input type="text" require={false} label="Cidade" />
+          <Input
+            register={register("city")}
+            type="text"
+            require={false}
+            label="Cidade"
+          />
         </div>
-        <Input type="text" require={false} label="Bairro" />
+        <Input
+          register={register("district")}
+          type="text"
+          require={false}
+          label="Bairro"
+        />
         <div>
-          <Input type="text" require={false} label="Logradouro" />
-          <Input type="number" require={false} label="Número" />
+          <Input
+            register={register("street")}
+            type="text"
+            require={false}
+            label="Logradouro"
+          />
+          <Input
+            register={register("number")}
+            type="number"
+            require={false}
+            label="Número"
+          />
         </div>
 
         <button type="submit">CADASTRAR</button>

@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const apiCep = axios.create({
-  baseURL: "viacep.com.br/ws/95800000/json/",
+  baseURL: "https://viacep.com.br/ws/",
   timeout: 5000,
 });
 export const apiCoinDesk = axios.create({
