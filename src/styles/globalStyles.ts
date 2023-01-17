@@ -32,8 +32,7 @@ body{
     padding: 16px;
 }
 #root{
-    width: 100%;
-    max-width: 440px;
+    
     margin: 0 auto;
 }
 .titleColor{
