@@ -47,7 +47,8 @@ body{
     margin-top: 16px;
     line-height: 22px;
     font-weight: 400;
-    width: 440px;
+    max-width: 440px;
+    padding: 16px;
 }
 
 `;

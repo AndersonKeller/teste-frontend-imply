@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const StyledForm = styled.form`
-  position: relative;
   width: 100%;
   max-width: 440px;
   height: auto;
@@ -17,9 +16,6 @@ export const StyledForm = styled.form`
     flex-wrap: wrap;
     justify-content: space-between;
     gap: 16px;
-    fieldset {
-      max-width: 46%;
-    }
   }
   button {
     width: 100%;
@@ -27,5 +23,10 @@ export const StyledForm = styled.form`
     color: var(--color-white);
     padding: 12px;
     font-weight: 700;
+  }
+  @media (min-width: 440px) {
+    div fieldset {
+      max-width: 46%;
+    }
   }
 `;

@@ -5,6 +5,7 @@ export const StyledInput = styled.fieldset`
   display: flex;
   flex-direction: column;
   border: none;
+  width: 100%;
   span {
     color: var(--color-secundary100);
   }
