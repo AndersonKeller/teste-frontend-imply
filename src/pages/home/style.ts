@@ -37,17 +37,18 @@ export const StyledHome = styled.main`
     .divMain {
       color: var(--color-white);
       background-color: var(--color-secundary100);
-      width: 90%;
       margin: 0 auto;
       border-radius: 8px;
       padding: 32px;
       display: flex;
+
       gap: 16px;
       flex-direction: column;
       div {
         display: flex;
         flex-direction: column;
         gap: 8px;
+        min-height: 150px;
       }
     }
   }

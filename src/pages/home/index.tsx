@@ -32,11 +32,18 @@ interface iEUR {
 
 export function Home() {
   const [infos, setInfos] = useState({} as iHomeInfos);
+  const [loading, setLoading] = useState(true);
   function getApiInfo() {
     async function getApi() {
-      const res = await apiCoinDesk.get("");
-      console.log(res.data);
-      setInfos(res.data.bpi);
+      try {
+        setLoading(true);
+        const res = await apiCoinDesk.get("");
+        console.log(res.data);
+        setInfos(res.data.bpi);
+      } catch (error) {
+      } finally {
+        setLoading(false);
+      }
     }
 
     getApi();
@@ -61,21 +68,25 @@ export function Home() {
         </p>
         <div className="divMain">
           <h2>Bitcoin Price Index</h2>
-          <div>
-            {" "}
-            <p>
-              {infos.USD.description}: &#36;
-              {infos.USD.rate_float.toFixed(2)}
-            </p>
-            <p>
-              {infos.GBP.description}: &pound;
-              {infos.GBP.rate_float.toFixed(2)}
-            </p>
-            <p>
-              {infos.EUR.description}: &euro;
-              {infos.EUR.rate_float.toFixed(2)}
-            </p>
-          </div>
+          {!loading ? (
+            <div>
+              {" "}
+              <p>
+                {infos.USD.description}: &#36;
+                {infos.USD.rate_float.toFixed(2)}
+              </p>
+              <p>
+                {infos.GBP.description}: &pound;
+                {infos.GBP.rate_float.toFixed(2)}
+              </p>
+              <p>
+                {infos.EUR.description}: &euro;
+                {infos.EUR.rate_float.toFixed(2)}
+              </p>
+            </div>
+          ) : (
+            <div></div>
+          )}
         </div>
         <p>
           O grande mistério do Bitcoin ainda não foi revelado. Afinal, quem

@@ -21,15 +21,7 @@ interface iFormData {
 
 export function Register() {
   const [openModal, setOpenModal] = useState(false);
-  const {
-    city,
-
-    district,
-
-    street,
-
-    number,
-  } = useContext(CepContext);
+  const { city, district, street, number } = useContext(CepContext);
 
   const registerSchema = yup.object().shape({
     name: yup.string().required("Nome obrigatório"),

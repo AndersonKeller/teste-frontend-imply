@@ -26,7 +26,6 @@ export function Input({
   errorMsg,
   value,
 }: iInputProps) {
-  const [loading, setLoading] = useState(false);
   const [inputValue, setInputValue] = useState("");
 
   const { setCity, setDistrict, setStreet, setNumber } = useContext(CepContext);
@@ -53,15 +52,12 @@ export function Input({
       } catch (error) {
         console.error(error);
       } finally {
-        setLoading(false);
       }
     }
     cepApi.length > 7 && getCepApi();
   }
 
-  return loading ? (
-    <p>Carregando</p>
-  ) : (
+  return (
     <StyledInput>
       <label className="textColor">
         {label}
