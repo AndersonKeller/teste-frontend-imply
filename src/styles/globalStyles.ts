@@ -9,8 +9,6 @@ const GlobalStyles = createGlobalStyle`
 
     --color-negative: #cc0000;
 
-
-
 }
 *{
     box-sizing: border-box;

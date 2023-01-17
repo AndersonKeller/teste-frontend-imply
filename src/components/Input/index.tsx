@@ -68,7 +68,7 @@ export function Input({
     <StyledInput>
       <label className="textColor">
         {label}
-        {require && <span>*</span>}
+        {require && <span> *</span>}
       </label>
       {mask ? (
         <>
