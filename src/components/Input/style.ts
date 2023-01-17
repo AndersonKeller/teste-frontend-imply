@@ -8,6 +8,7 @@ export const StyledInput = styled.fieldset`
   width: 100%;
   span {
     color: var(--color-secundary100);
+    font-size: 1.3rem;
   }
   input {
     height: 45px;

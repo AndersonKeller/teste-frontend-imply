@@ -38,9 +38,10 @@ export function Home() {
       try {
         setLoading(true);
         const res = await apiCoinDesk.get("");
-        console.log(res.data);
+
         setInfos(res.data.bpi);
       } catch (error) {
+        console.error(error);
       } finally {
         setLoading(false);
       }
@@ -52,7 +53,7 @@ export function Home() {
   useEffect(() => {
     getApiInfo();
   }, []);
-  console.log(infos);
+
   return (
     <StyledHome>
       <header>

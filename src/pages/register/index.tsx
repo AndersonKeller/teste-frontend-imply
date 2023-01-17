@@ -31,7 +31,7 @@ export function Register() {
       .string()
       .required("Telefone obrigatório")
       .min(15, "Formato inválido"),
-    cpf: yup.string().required("CPF obrigatório").min(14, "Formato inválido"),
+    cpf: yup.string().required("CPF obrigatório"),
     cep: yup.string().required("CEP obrigatório").min(9, "formato inválido"),
     city: yup.string(),
     district: yup.string(),
@@ -50,10 +50,17 @@ export function Register() {
   const onSubmit: SubmitHandler<iFormData> = async (data: iFormData) =>
     onSubmitApi(data);
   function onSubmitApi(data: iFormData) {
-    console.log(data);
+    let cpf = data.cpf.replaceAll(".", "");
+    cpf = cpf.replace("-", "");
+
+    const cpfList = Array.from(cpf);
+    const res = cpfList.filter((cpf, index) => {
+      return cpfList.indexOf(cpf) === index;
+    });
+
     setMessagePhone("");
     setMessageCpf("");
-    if (data.cpf.includes("_")) {
+    if (data.cpf.includes("_") || res.length === 1) {
       setMessageCpf("Formato inválido");
     } else if (data.phone.includes("_")) {
       setMessagePhone("Formato inválido");
@@ -74,7 +81,7 @@ export function Register() {
           register={register("name")}
           type="text"
           require={true}
-          label="Nome Completo"
+          label="Nome completo"
           errorMsg={errors.name?.message && errors.name.message}
         />
         <Input

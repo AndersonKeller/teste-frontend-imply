@@ -25,7 +25,7 @@ button{
 }
 body{
     background-color: var(--color-primary100);
-   
+   padding: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -41,7 +41,7 @@ body{
     color: var(--font-color);
     font-weight: 500;
     line-height: 26px;
-    font-size: 1.1rem;
+    font-size: 1rem;
 }
 .textFooter{
     color: var(--color-white);
