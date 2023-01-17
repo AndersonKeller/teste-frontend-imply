@@ -59,7 +59,7 @@ export function Home() {
         <img src={bitcoin} alt="bitcoin backgroundPage" />
       </header>
       <section>
-        <p>
+        <p className="textColor">
           A origem do Bitcoin é tão interessante quanto a sua evolução no
           mercado. Criada há quase uma década, a moeda virtual alcançou
           patamares históricos de cotações, atraindo ainda mais visibilidade
@@ -67,7 +67,7 @@ export function Home() {
           <strong>um dos investimentos mais atrativos do momento</strong>
         </p>
         <div className="divMain">
-          <h2>Bitcoin Price Index</h2>
+          <h1>Bitcoin Price Index</h1>
           {!loading ? (
             <div>
               {" "}
@@ -88,7 +88,7 @@ export function Home() {
             <div></div>
           )}
         </div>
-        <p>
+        <p className="textColor">
           O grande mistério do Bitcoin ainda não foi revelado. Afinal, quem
           inventou a criptomoeda? Existem várias versões, mas nenhuma conclusiva
           até o momento. O que se sabe é que o fundador usa o pseudônimo Satoshi

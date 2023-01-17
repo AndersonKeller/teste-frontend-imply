@@ -41,6 +41,7 @@ body{
     color: var(--font-color);
     font-weight: 500;
     line-height: 26px;
+    font-size: 1.1rem;
 }
 .textFooter{
     color: var(--color-white);
@@ -49,6 +50,11 @@ body{
     font-weight: 400;
     max-width: 440px;
     padding: 16px;
+}
+@media (min-width:440px){
+    .textFooter{
+        padding: 0;
+    }
 }
 
 `;

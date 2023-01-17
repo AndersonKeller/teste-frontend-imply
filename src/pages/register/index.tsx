@@ -43,7 +43,7 @@ export function Register() {
     handleSubmit,
     formState: { errors },
   } = useForm<iFormData>({
-    mode: "onChange",
+    mode: "onBlur",
     resolver: yupResolver(registerSchema),
   });
 

@@ -15,6 +15,7 @@ export const StyledInput = styled.fieldset`
     border-radius: 8px;
     width: 100%;
     padding-left: 8px;
+    margin-top: 6px;
   }
   p {
     color: var(--color-negative);

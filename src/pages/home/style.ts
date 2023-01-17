@@ -42,13 +42,17 @@ export const StyledHome = styled.main`
       padding: 32px;
       display: flex;
       width: 100%;
-      gap: 16px;
+      gap: 32px;
       flex-direction: column;
       div {
         display: flex;
         flex-direction: column;
-        gap: 8px;
+        gap: 6px;
         min-height: 150px;
+        p {
+          font-weight: 500;
+          font-size: 1.1rem;
+        }
       }
     }
   }

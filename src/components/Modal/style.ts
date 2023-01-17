@@ -27,7 +27,8 @@ export const StyledModal = styled.div`
   gap: 16px;
   a {
     text-decoration: none;
-    width: 100%;
+    width: 80%;
+    margin: 0 auto;
     border-radius: 8px;
     text-align: center;
     padding: 8px 16px;

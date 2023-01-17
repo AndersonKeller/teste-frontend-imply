@@ -6,7 +6,7 @@ export const StyledForm = styled.form`
   height: auto;
   background-color: var(--color-white);
   border-radius: 8px;
-  padding: 16px;
+  padding: 32px;
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -23,6 +23,8 @@ export const StyledForm = styled.form`
     color: var(--color-white);
     padding: 12px;
     font-weight: 700;
+    font-size: 1rem;
+    margin-top: 16px;
   }
   @media (min-width: 440px) {
     div fieldset {
