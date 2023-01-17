@@ -3,6 +3,8 @@ import { Input } from "../../components/Input";
 import * as yup from "yup";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { useState } from "react";
+import { ModalWrapper } from "../../components/Modal";
 
 interface iFormData {
   name: string;
@@ -17,6 +19,8 @@ interface iFormData {
 }
 
 export function Register() {
+  const [openModal, setOpenModal] = useState(false);
+
   const registerSchema = yup.object().shape({
     name: yup.string().required("Nome obrigatório"),
     email: yup.string().required("Email obrigatório").email("Formato inválido"),
@@ -43,7 +47,7 @@ export function Register() {
   const onSubmit: SubmitHandler<iFormData> = async (data: iFormData) =>
     onSubmitApi(data);
   function onSubmitApi(data: iFormData) {
-    console.log(data);
+    setOpenModal(true);
   }
 
   return (
@@ -132,6 +136,7 @@ export function Register() {
         rápida e eficiente, eliminando a necessidade de introduzir repetidamente
         as mesmas informações.
       </p>
+      {openModal && <ModalWrapper></ModalWrapper>}
     </>
   );
 }

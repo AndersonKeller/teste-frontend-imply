@@ -25,12 +25,14 @@ export function Input({
   onChangeCep,
 }: iInputProps) {
   const [loading, setLoading] = useState(false);
-  const [cepApi, setCepApi] = useState("");
+
+  const [inputValue, setInputValue] = useState("");
 
   const [city, setCity] = useState("");
 
-  function handleCepApi(value: string) {
-    setCepApi(value.replace("-", ""));
+  function handleCepApi(data: string) {
+    setInputValue(data);
+    const cepApi = data.replace("-", "");
 
     async function getCepApi() {
       try {
@@ -45,8 +47,9 @@ export function Input({
         setLoading(false);
       }
     }
-    cepApi.length > 7 && getCepApi();
+    inputValue.length > 7 && getCepApi();
   }
+
   return loading ? (
     <>Carregando</>
   ) : (
@@ -73,6 +76,7 @@ export function Input({
                 type={type}
                 {...register}
                 onBlur={(e) => handleCepApi(e.target.value)}
+                value={inputValue}
               />
               {errorMsg && <p>{errorMsg}</p>}
             </>
